@@ -4,7 +4,7 @@
 **Built for:** Kaggle's 5-Day AI Agents Intensive Vibe Coding Capstone (with Google)
 
 🔗 Live Demo: _[https://testflowai-copilot-builtbyvarshini.streamlit.app/]_<br>
-🎥 Video Demo: _[https://youtu.be/AcbMTLvERZc]_
+🎥 Video Demo: _[https://youtu.be/HtCtvlvEDs8]_
 
 > An AI agent suite for testers that turns a single bug report into full
 > triage, regression test cases, and an evidence checklist automatically —
