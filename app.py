@@ -119,7 +119,7 @@ with st.sidebar:
                 """
                 1. Visit **[Google AI Studio](https://aistudio.google.com/app/apikey)**
                    (sign in with your Google account)
-                2. Click **"Get API key"** from sidebar
+                2. Click **"create API key"** from API keys section
                 3. Copy the key it gives you
                 4. Paste it into the box above and click **"Save key for this session"**
                 """
