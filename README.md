@@ -204,8 +204,8 @@ context and merges back only the new/changed files.
 | GitHub | Code hosting | Free |
 | Streamlit Community Cloud | App deployment | Free |
 
-## 5. Setup Instructions (Run Locally)
-
+## 5. Setup Instructions 
+### Option A: Run Locally
 1. **Clone the repo**
    ```bash
    git clone https://github.com/<your-username>/qa-copilot.git
@@ -234,7 +234,12 @@ context and merges back only the new/changed files.
    ```
 
 5. Open the local URL Streamlit prints in your terminal (usually `http://localhost:8501`)
+### Option B: Try the Deployed App (No Setup Required)
 
+1. Open the live app: [testflowai-copilot-builtbyvarshini.streamlit.app](https://testflowai-copilot-builtbyvarshini.streamlit.app/)
+2. Get a free Gemini API key at [aistudio.google.com/app/apikey](https://aistudio.google.com/app/apikey)
+3. Paste the key into the sidebar field
+4. Start using the app immediately
 > **Note on models:** Gemini 1.5 and 2.0 models were retired by Google in
 > early 2026. The app defaults to `gemini-2.5-flash` everywhere. The Test
 > Generator tab additionally lets you pick `gemini-flash-latest` or
