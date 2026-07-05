@@ -34,7 +34,7 @@ file is a delay in the software delivery pipeline.
 
 **QA Copilot** is a multi-agent AI assistant that automates these tasks
 using five agents, each powered by the Google Gemini API:
-
+![QA Copilot Orchestrator Workflow](Screenshots/HOMEPAGE.png)
 | Agent | Input | Output |
 |---|---|---|
 | **Orchestrator Agent** | A bug report (one input) | Automatically runs the Bug Analysis, Requirement, and Evidence agents and combines their output into one report |
@@ -82,7 +82,31 @@ Test Generator tab instead offers per-file downloads plus a one-click
 into an actual deliverable, not just on-screen text.
 
 ## 3. Architecture
+**Orchestrator Workflow**
+![QA Copilot Orchestrator Workflow](Screenshots/Architectural%20Diagrams/Orchestrator_Workflow.png)
 
+**Flow (single agent tabs):** User types input → the relevant agent module
+builds a structured prompt → `gemini_client.py` sends it to the Gemini API →
+the response is rendered back as formatted markdown in the UI, with a
+download button to export it as a ticket.
+
+**Flow (Orchestrator tab):** User pastes one bug report → Orchestrator calls
+Bug Analysis Agent → reframes the bug as a requirement and calls Requirement
+Agent → calls Evidence Agent → all three outputs are merged into one
+downloadable bug ticket. Session memory (`st.session_state`) also carries
+the bug text into the other tabs via an explicit "Use shared context"
+button, so the tester doesn't have to retype it if they don't want to.
+
+**Test Generator Workflow**
+![QA Copilot Orchestrator Workflow](Screenshots/Architectural%20Diagrams/TestGenerator_Workflow.png)
+**Flow (Test Generator tab):** User picks a language (JavaScript/TypeScript)
+and Gemini model, uploads a screenshot, pastes/uploads the DOM, and lists
+test cases → `test_generator_agent.py` sends the screenshot + prompt to
+Gemini with a strict JSON response schema → the returned Page Objects, spec
+files, and data fixtures are rendered as code with per-file and full-project
+downloads. Projects can be saved to session memory and later extended
+through the **Add Requirements** flow, which sends the existing project as
+context and merges back only the new/changed files.
 ```
 qa-copilot/
 ├── app.py                           # Streamlit UI — sidebar key entry + 5 tabs
@@ -112,28 +136,6 @@ qa-copilot/
 ├── requirements.txt                 # Python dependencies
 └── .gitignore                       # Excludes .env so any local key is never committed
 ```
-
-**Flow (single agent tabs):** User types input → the relevant agent module
-builds a structured prompt → `gemini_client.py` sends it to the Gemini API →
-the response is rendered back as formatted markdown in the UI, with a
-download button to export it as a ticket.
-
-**Flow (Orchestrator tab):** User pastes one bug report → Orchestrator calls
-Bug Analysis Agent → reframes the bug as a requirement and calls Requirement
-Agent → calls Evidence Agent → all three outputs are merged into one
-downloadable bug ticket. Session memory (`st.session_state`) also carries
-the bug text into the other tabs via an explicit "Use shared context"
-button, so the tester doesn't have to retype it if they don't want to.
-
-**Flow (Test Generator tab):** User picks a language (JavaScript/TypeScript)
-and Gemini model, uploads a screenshot, pastes/uploads the DOM, and lists
-test cases → `test_generator_agent.py` sends the screenshot + prompt to
-Gemini with a strict JSON response schema → the returned Page Objects, spec
-files, and data fixtures are rendered as code with per-file and full-project
-downloads. Projects can be saved to session memory and later extended
-through the **Add Requirements** flow, which sends the existing project as
-context and merges back only the new/changed files.
-
 ### Key concepts demonstrated (per hackathon rubric)
 
 - **Multi-agent system** — five agents total: four specialists (Requirement,
@@ -314,8 +316,10 @@ server errors (retried automatically), and exhausted daily quotas
 - Let the Test Generator Agent target frameworks beyond Playwright
    from the same screenshot/DOM/test-case input
 
----
+## 8. Conclusion
+QA Copilot demonstrates how multi-agent AI can reduce repetitive QA work while helping testers maintain high-quality automation as applications evolve.
 
+---
 <i>QA Copilot • Designed and Developed by Varshini Umashankar • © 2026 All rights reserved.</i>
 
 
