@@ -2,14 +2,12 @@ LICENSE NOTICE
 
 *Copyright © 2026 Varshini Uma Shankar. All Rights Reserved.*
 
-
 This repository is publicly available solely for demonstration, evaluation, educational viewing, and competition purposes.
-
 The source code, AI workflows, prompts, orchestration logic, architecture, documentation, and all associated files are the exclusive intellectual property of *Varshini Uma Shankar*.
 
 PERMITTED
 - View this repository.
-- Use the deployed application (if available) for evaluation and demonstration purposes.
+- Use the deployed application for evaluation and demonstration purposes.
 
 PROHIBITED
 - Copy, reproduce, modify, or redistribute any part of the source code.
@@ -18,3 +16,13 @@ PROHIBITED
 - Claim this work or any part of it as your own.
 
 For licensing inquiries or commercial use, prior written permission from the author is required.
+
+
+DISCLAIMER
+This repository is intended to demonstrate the project's capabilities and architecture. Public availability of the repository does *not* grant permission to reuse or redistribute the source code.
+
+
+AUTHOR
+Varshini Uma Shankar
+varshiniuu@gmail.com
+AI QA Engineer | Automation Test Engineer 
